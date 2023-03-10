@@ -19,7 +19,7 @@ pipeline {
                 junit testResults: '**/TEST-*.xml'
             }                        
         }
-        stage('publish artifact') {
+        stage('publish artifact and display') {
             steps {
                 archiveArtifacts artifacts: '**/Musicstore-dec/MusicStore.sln',
                          allowEmptyArchive: true,
