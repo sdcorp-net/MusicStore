@@ -17,7 +17,14 @@ pipeline {
             steps {
                 sh 'dotnet test --logger:"junit;LogFilePath=TEST-musicstoretest.xml" ./MusicStoreTest/MusicStoreTest.csproj'
                 junit testResults: '**/TEST-*.xml'
-            }            
+            }                        
+        }
+        stage('publish artifact') {
+            steps {
+                archiveArtifacts artifacts: '**/Musicstore-dec/MusicStore.sln',
+                         allowEmptyArchive: true,
+                         onlyIfSuccessful: true
+            }
         }
     }
 }
