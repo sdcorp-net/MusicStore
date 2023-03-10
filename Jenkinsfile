@@ -21,7 +21,7 @@ pipeline {
         }
         stage('publish artifact and display') {
             steps {
-                archiveArtifacts artifacts: '**/Musicstore-dec/MusicStore.sln',
+                archiveArtifacts artifacts: '**/Musicstore-dec/MusicStore/MusicStore.csproj',
                          allowEmptyArchive: true,
                          onlyIfSuccessful: true
             }
